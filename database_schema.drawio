@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2020-10-25T21:40:26.931Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36" etag="n-dauWg3f1j5T1qairB2" version="13.8.2" type="github">
+<mxfile host="app.diagrams.net" modified="2020-10-31T00:12:14.043Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36" etag="R1bFmjbm7aA7BcnCL1cR" version="13.8.5" type="github">
   <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
-    <mxGraphModel dx="1422" dy="762" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <mxGraphModel dx="1138" dy="610" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -424,14 +424,20 @@
         <mxCell id="uJvdlF1b2mUdrFgOza4_-148" value="notes str" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;" parent="uJvdlF1b2mUdrFgOza4_-146" vertex="1">
           <mxGeometry x="30" width="210" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="5Co3t9KvrL08pJ7tvQhm-1" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" vertex="1" parent="uJvdlF1b2mUdrFgOza4_-124">
+        <mxCell id="5Co3t9KvrL08pJ7tvQhm-1" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;top=0;left=0;right=0;bottom=0;" parent="uJvdlF1b2mUdrFgOza4_-124" vertex="1">
           <mxGeometry y="240" width="240" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="5Co3t9KvrL08pJ7tvQhm-2" value="" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;" vertex="1" parent="5Co3t9KvrL08pJ7tvQhm-1">
+        <mxCell id="5Co3t9KvrL08pJ7tvQhm-2" value="" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;" parent="5Co3t9KvrL08pJ7tvQhm-1" vertex="1">
           <mxGeometry width="30" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="5Co3t9KvrL08pJ7tvQhm-3" value="external_link str" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;" vertex="1" parent="5Co3t9KvrL08pJ7tvQhm-1">
+        <mxCell id="5Co3t9KvrL08pJ7tvQhm-3" value="external_link str" style="shape=partialRectangle;overflow=hidden;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;" parent="5Co3t9KvrL08pJ7tvQhm-1" vertex="1">
           <mxGeometry x="30" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="P4Vx3YKcMHTVaxqF8o0k-1" value="Add shared to each model, remove from join tables" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="674" y="710" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P4Vx3YKcMHTVaxqF8o0k-2" value="character origin field on Character model?&lt;br&gt;Or scope it" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="57" y="738" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
