@@ -8,6 +8,7 @@ class CreateCharacters < ActiveRecord::Migration[5.2]
       t.integer :average_lifespan
       t.string :physical_description
       t.string :notes
+      t.boolean :shared
 
       t.timestamps
     end

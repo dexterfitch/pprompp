@@ -3,6 +3,7 @@ class CreateTactics < ActiveRecord::Migration[5.2]
     create_table :tactics do |t|
       t.string :description
       t.string :notes
+      t.boolean :shared
 
       t.timestamps
     end

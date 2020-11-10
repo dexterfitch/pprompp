@@ -1,4 +1,4 @@
-class TacticsController < ApplicationController
+class PromptsController < ApplicationController
 
   def index
   end

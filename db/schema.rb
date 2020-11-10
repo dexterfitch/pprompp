@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_194107) do
+ActiveRecord::Schema.define(version: 2020_11_10_223115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_194107) do
     t.integer "average_lifespan"
     t.string "physical_description"
     t.string "notes"
+    t.boolean "shared"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_194107) do
   create_table "goals", force: :cascade do |t|
     t.string "description"
     t.string "notes"
+    t.boolean "shared"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,13 +39,33 @@ ActiveRecord::Schema.define(version: 2020_10_27_194107) do
   create_table "motivations", force: :cascade do |t|
     t.string "description"
     t.string "notes"
+    t.boolean "shared"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "prompts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "character_id"
+    t.bigint "goal_id"
+    t.bigint "motivation_id"
+    t.bigint "tactic_id"
+    t.string "notes"
+    t.string "url"
+    t.boolean "shared"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["character_id"], name: "index_prompts_on_character_id"
+    t.index ["goal_id"], name: "index_prompts_on_goal_id"
+    t.index ["motivation_id"], name: "index_prompts_on_motivation_id"
+    t.index ["tactic_id"], name: "index_prompts_on_tactic_id"
+    t.index ["user_id"], name: "index_prompts_on_user_id"
   end
 
   create_table "tactics", force: :cascade do |t|
     t.string "description"
     t.string "notes"
+    t.boolean "shared"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,7 +73,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_194107) do
   create_table "user_characters", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "character_id"
-    t.boolean "shared"
     t.index ["character_id"], name: "index_user_characters_on_character_id"
     t.index ["user_id"], name: "index_user_characters_on_user_id"
   end
@@ -59,7 +80,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_194107) do
   create_table "user_goals", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "goal_id"
-    t.boolean "shared"
     t.index ["goal_id"], name: "index_user_goals_on_goal_id"
     t.index ["user_id"], name: "index_user_goals_on_user_id"
   end
@@ -67,13 +87,11 @@ ActiveRecord::Schema.define(version: 2020_10_27_194107) do
   create_table "user_motivations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "motivation_id"
-    t.boolean "shared"
     t.index ["motivation_id"], name: "index_user_motivations_on_motivation_id"
     t.index ["user_id"], name: "index_user_motivations_on_user_id"
   end
 
   create_table "user_tactics", force: :cascade do |t|
-    t.boolean "shared"
     t.bigint "user_id"
     t.bigint "tactic_id"
     t.index ["tactic_id"], name: "index_user_tactics_on_tactic_id"
@@ -92,6 +110,11 @@ ActiveRecord::Schema.define(version: 2020_10_27_194107) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "prompts", "characters"
+  add_foreign_key "prompts", "goals"
+  add_foreign_key "prompts", "motivations"
+  add_foreign_key "prompts", "tactics"
+  add_foreign_key "prompts", "users"
   add_foreign_key "user_characters", "characters"
   add_foreign_key "user_characters", "users"
   add_foreign_key "user_goals", "goals"
