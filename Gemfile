@@ -30,6 +30,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'dotenv-rails'
+
+# Add Bootstrap 4
+gem 'bootstrap', '~> 4.0.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
