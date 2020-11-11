@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## Rememberable
       t.datetime :remember_created_at
 
-      #OAuth Columns
+      ## OAuth Columns
       t.string :full_name
       t.integer :uid
       t.string :avatar_url

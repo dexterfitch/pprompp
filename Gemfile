@@ -34,6 +34,7 @@ gem 'dotenv-rails'
 
 # Add Bootstrap 4
 gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
