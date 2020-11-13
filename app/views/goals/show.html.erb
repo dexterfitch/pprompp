@@ -1,0 +1,10 @@
+<h1>Goal</h1>
+<h4><label>Description</label></h4>
+<h4><%= @goal.description %></h4>
+<label>Notes</label>
+<p><%= @goal.notes %></p>
+<% if current_user.id == @goal.user_id %>
+  <hr>
+  <%= link_to "Edit", edit_goal_path(@goal) %>
+  <%= link_to "Delete", goal_path(@goal), method: :delete %>
+<% end %>

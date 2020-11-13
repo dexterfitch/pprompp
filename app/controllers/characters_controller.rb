@@ -40,7 +40,7 @@ class CharactersController < ApplicationController
 
   def destroy
     @character.destroy 
-    redirect_to root
+    redirect_to character_index_mine_path(current_user)
   end
 
   private

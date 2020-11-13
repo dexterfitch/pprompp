@@ -7,7 +7,7 @@ class GoalsController < ApplicationController
   end
 
   def index_mine
-    @characters = current_user.created_goals.all
+    @goals = current_user.created_goals.all
   end
 
   def create
@@ -40,7 +40,7 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    redirect_to root
+    redirect_to goal_index_mine_path(current_user)
   end
 
   private
