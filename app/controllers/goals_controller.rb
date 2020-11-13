@@ -7,24 +7,40 @@ class GoalsController < ApplicationController
   end
 
   def index_mine
+    @characters = current_user.created_goals.all
   end
 
   def create
+    @goal = Goal.new(goal_params)
+    if @goal.save
+      redirect_to goal_path(@goal)
+    else
+      render :new
+    end
   end
 
   def new
+    @goal = Goal.new
   end
 
   def edit
   end
 
   def show
+    @goal = Goal.find(params[:id])
   end
 
   def update
+    if @goal.update(goal_params)
+      redirect_to goal_path(@goal)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @goal.destroy
+    redirect_to root
   end
 
   private

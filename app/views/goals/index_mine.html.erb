@@ -1,0 +1,4 @@
+<h1>My Goals</h1>
+<p><small>Filter: <%= link_to "All Goals", goals_path %></small></p>
+
+<%= render partial: "index_list", locals: { goals: @goals } %>

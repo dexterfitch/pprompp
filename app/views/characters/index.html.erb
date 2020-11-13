@@ -2,8 +2,5 @@
 <% if current_user.created_characters.length > 0 %>
   <p><small>Filter: <%= link_to "My Created Characters", index_mine_path(current_user) %></small></p>
 <% end %>
-<ul>
-  <% @characters.each do |character| %>
-    <li><%= link_to character.name, character_path(character) %> (<%= character.species %>)</li>
-  <% end %>
-</ul>
+
+<%= render partial: "index_list", locals: {character: @character} %>
