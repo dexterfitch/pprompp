@@ -1,8 +1,13 @@
 class CharactersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_character_variable, only: [:edit, :update, :destroy]
 
   def index
     @characters = Character.all
+  end
+
+  def index_mine
+    @characters = current_user.created_characters.all
   end
 
   def create
@@ -26,15 +31,26 @@ class CharactersController < ApplicationController
   end
 
   def update
+    if @character.update(character_params)
+      redirect_to character_path(@character)
+    else 
+      render :edit 
+    end 
   end
 
   def destroy
+    @character.destroy 
+    redirect_to '/'
   end
 
   private
 
   def character_params
     params.require(:character).permit(:user_id, :name, :species, :race, :age, :average_lifespan, :physical_description, :notes, :shared)
+  end
+
+  def set_character_variable
+    @character = current_user.created_characters.find(params[:id])
   end
 
 end

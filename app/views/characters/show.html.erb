@@ -13,3 +13,8 @@
 <p><%= @character.notes %></p>
 <label>Shared?</label>
 <p><%= @character.shared ? "Yes" : "No" %></p>
+<% if current_user.id == @character.user_id %>
+  <hr>
+  <%= link_to "Edit", edit_character_path(@character) %>
+  <%= link_to "Delete", character_path(@character), method: :delete %>
+<% end %>

@@ -23,6 +23,8 @@ class User < ApplicationRecord
       u.password = SecureRandom.hex
     end
     user.update(uid: uid, full_name: full_name, avatar_url: avatar_url)
+    # BLOG
+    user
   end
 
 end

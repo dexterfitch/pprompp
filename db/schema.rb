@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_223115) do
   enable_extension "plpgsql"
 
   create_table "characters", force: :cascade do |t|
+    t.integer "user_id"
     t.string "name"
     t.string "species"
     t.string "race"
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_223115) do
   end
 
   create_table "goals", force: :cascade do |t|
+    t.integer "user_id"
     t.string "description"
     t.string "notes"
     t.boolean "shared"
@@ -37,6 +39,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_223115) do
   end
 
   create_table "motivations", force: :cascade do |t|
+    t.integer "user_id"
     t.string "description"
     t.string "notes"
     t.boolean "shared"
@@ -63,47 +66,12 @@ ActiveRecord::Schema.define(version: 2020_11_10_223115) do
   end
 
   create_table "tactics", force: :cascade do |t|
+    t.integer "user_id"
     t.string "description"
     t.string "notes"
     t.boolean "shared"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "user_characters", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "character_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["character_id"], name: "index_user_characters_on_character_id"
-    t.index ["user_id"], name: "index_user_characters_on_user_id"
-  end
-
-  create_table "user_goals", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "goal_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["goal_id"], name: "index_user_goals_on_goal_id"
-    t.index ["user_id"], name: "index_user_goals_on_user_id"
-  end
-
-  create_table "user_motivations", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "motivation_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["motivation_id"], name: "index_user_motivations_on_motivation_id"
-    t.index ["user_id"], name: "index_user_motivations_on_user_id"
-  end
-
-  create_table "user_tactics", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "tactic_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tactic_id"], name: "index_user_tactics_on_tactic_id"
-    t.index ["user_id"], name: "index_user_tactics_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -113,7 +81,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_223115) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "full_name"
-    t.integer "uid"
+    t.string "uid"
     t.string "avatar_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -126,12 +94,4 @@ ActiveRecord::Schema.define(version: 2020_11_10_223115) do
   add_foreign_key "prompts", "motivations"
   add_foreign_key "prompts", "tactics"
   add_foreign_key "prompts", "users"
-  add_foreign_key "user_characters", "characters"
-  add_foreign_key "user_characters", "users"
-  add_foreign_key "user_goals", "goals"
-  add_foreign_key "user_goals", "users"
-  add_foreign_key "user_motivations", "motivations"
-  add_foreign_key "user_motivations", "users"
-  add_foreign_key "user_tactics", "tactics"
-  add_foreign_key "user_tactics", "users"
 end
