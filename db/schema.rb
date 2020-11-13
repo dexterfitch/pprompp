@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 2020_11_10_223115) do
   create_table "user_characters", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "character_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["character_id"], name: "index_user_characters_on_character_id"
     t.index ["user_id"], name: "index_user_characters_on_user_id"
   end
@@ -80,6 +82,8 @@ ActiveRecord::Schema.define(version: 2020_11_10_223115) do
   create_table "user_goals", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "goal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["goal_id"], name: "index_user_goals_on_goal_id"
     t.index ["user_id"], name: "index_user_goals_on_user_id"
   end
@@ -87,6 +91,8 @@ ActiveRecord::Schema.define(version: 2020_11_10_223115) do
   create_table "user_motivations", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "motivation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["motivation_id"], name: "index_user_motivations_on_motivation_id"
     t.index ["user_id"], name: "index_user_motivations_on_user_id"
   end
@@ -94,6 +100,8 @@ ActiveRecord::Schema.define(version: 2020_11_10_223115) do
   create_table "user_tactics", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "tactic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["tactic_id"], name: "index_user_tactics_on_tactic_id"
     t.index ["user_id"], name: "index_user_tactics_on_user_id"
   end

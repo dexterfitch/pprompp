@@ -22,6 +22,7 @@ class CharactersController < ApplicationController
   end
 
   def show
+    @character = Character.find(params[:id])
   end
 
   def update
@@ -33,7 +34,7 @@ class CharactersController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, :species, :race, :age, :average_lifespan, :physical_description, :notes, :shared)
+    params.require(:character).permit(:user_id, :name, :species, :race, :age, :average_lifespan, :physical_description, :notes, :shared)
   end
 
 end

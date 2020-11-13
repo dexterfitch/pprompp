@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  has_many :user_characters
-  has_many :user_goals
-  has_many :user_motivations
-  has_many :user_tactics
+  has_many :created_characters, class_name: "Character"
+  has_many :created_goals, class_name: "Goal"
+  has_many :created_motivations, class_name: "Motivation"
+  has_many :created_tactics, class_name: "Tactic"
   has_many :prompts
   has_many :characters, through: :prompts
   has_many :goals, through: :prompts
