@@ -4,6 +4,8 @@
 <label>Notes</label>
 <p><%= @goal.notes %></p>
 <% if current_user.id == @goal.user_id %>
+  <label>Shared?</label>
+  <p><%= @goal.shared ? "Yes" : "No" %></p>
   <hr>
   <%= link_to "Edit", edit_goal_path(@goal) %>
   <%= link_to "Delete", goal_path(@goal), method: :delete %>

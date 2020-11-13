@@ -1,0 +1,12 @@
+<h1>Motivation</h1>
+<h4><label>Description</label></h4>
+<h4><%= @motivation.description %></h4>
+<label>Notes</label>
+<p><%= @motivation.notes %></p>
+<% if current_user.id == @motivation.user_id %>
+  <label>Shared?</label>
+  <p><%= @motivation.shared ? "Yes" : "No" %></p>
+  <hr>
+  <%= link_to "Edit", edit_motivation_path(@motivation) %>
+  <%= link_to "Delete", motivation_path(@motivation), method: :delete %>
+<% end %>

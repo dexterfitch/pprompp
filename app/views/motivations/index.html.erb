@@ -1,0 +1,6 @@
+<h1>Motivations</h1>
+<% if current_user.created_motivations.length > 0 %>
+  <p><small>Filter: <%= link_to "My Created Motivations", motivation_index_mine_path(current_user) %></small></p>
+<% end %>
+
+<%= render partial: "shared/index_list", locals: { objects: @motivations } %>

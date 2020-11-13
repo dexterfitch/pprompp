@@ -1,8 +1,4 @@
-<h1>Characters</h1>
-<p><small>Filter: <%= link_to "All Characters", characters_path %></small></p>
+<h1>My Motivations</h1>
+<p><small>Filter: <%= link_to "All Motivations", motivations_path %></small></p>
 
-<ul>
-  <% @characters.each do |character| %>
-    <li><%= link_to character.name, character_path(character) %> (<%= character.species %>)</li>
-  <% end %>
-</ul>
+<%= render partial: "shared/index_list", locals: { objects: @motivations } %>

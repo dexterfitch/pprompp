@@ -3,4 +3,4 @@
   <p><small>Filter: <%= link_to "My Created Goals", goal_index_mine_path(current_user) %></small></p>
 <% end %>
 
-<%= render partial: "index_list", locals: { goals: @goals } %>
+<%= render partial: "shared/index_list", locals: { objects: @goals } %>

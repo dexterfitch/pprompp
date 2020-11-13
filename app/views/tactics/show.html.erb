@@ -1,0 +1,12 @@
+<h1>Tactic</h1>
+<h4><label>Description</label></h4>
+<h4><%= @tactic.description %></h4>
+<label>Notes</label>
+<p><%= @tactic.notes %></p>
+<% if current_user.id == @tactic.user_id %>
+  <label>Shared?</label>
+  <p><%= @tactic.shared ? "Yes" : "No" %></p>
+  <hr>
+  <%= link_to "Edit", edit_tactic_path(@tactic) %>
+  <%= link_to "Delete", tactic_path(@tactic), method: :delete %>
+<% end %>
