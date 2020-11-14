@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  has_many :created_characters, class_name: "Character"
-  has_many :created_goals, class_name: "Goal"
-  has_many :created_motivations, class_name: "Motivation"
-  has_many :created_tactics, class_name: "Tactic"
-  has_many :created_prompts, class_name: "Prompt"
+  has_many :created_characters, class_name: "Character", dependent: :destroy
+  has_many :created_goals, class_name: "Goal", dependent: :destroy
+  has_many :created_motivations, class_name: "Motivation", dependent: :destroy
+  has_many :created_tactics, class_name: "Tactic", dependent: :destroy
+  has_many :created_prompts, class_name: "Prompt", dependent: :destroy
   has_many :characters, through: :prompts
   has_many :goals, through: :prompts
   has_many :motivations, through: :prompts

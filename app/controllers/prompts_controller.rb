@@ -21,6 +21,7 @@ class PromptsController < ApplicationController
 
   def new
     @prompt = Prompt.new
+    @prompt.build_character
     @characters = Character.available(current_user).randomize("Character")
     @goals = Goal.available(current_user).randomize("Goal")
     @motivations = Motivation.available(current_user).randomize("Motivation")
@@ -49,13 +50,13 @@ class PromptsController < ApplicationController
 
   def destroy
     @prompt.destroy
-    redirect_to prompts_index_mine_path
+    redirect_to user_prompts_path(current_user)
   end
 
   private
 
   def prompt_params
-    params.require(:prompt).permit(:user_id, :character_id, :goal_id, :motivation_id, :tactic_id, :notes, :url, :shared)
+    params.require(:prompt).permit(:user_id, :character_id, :goal_id, :motivation_id, :tactic_id, :notes, :url, :shared, character_attributes: [:user_id, :name, :species, :race, :age, :average_lifespan, :physical_description, :notes, :shared])
   end
 
   def set_prompt_variable

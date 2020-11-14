@@ -3,8 +3,4 @@
   <p><small>Filter: <%= link_to "My Prompts", user_prompts_path(current_user) %></small></p>
 <% end %>
 
-<ul>
-  <% @prompts.each do |prompt| %>
-    <li><%= link_to prompt.character.name, prompt_path(prompt) %> (<%= prompt.goal.description %>)</li>
-  <% end %>
-</ul>
+<%= render partial: "index_list" %>

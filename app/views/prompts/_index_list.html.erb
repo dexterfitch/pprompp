@@ -1,0 +1,5 @@
+<ul>
+  <% @prompts.each do |prompt| %>
+    <li><%= link_to prompt.character.name, prompt_path(prompt) %> (<%= prompt.goal.description %>, <%= prompt.motivation.description %>, <%= prompt.tactic.description %>)</li>
+  <% end %>
+</ul>

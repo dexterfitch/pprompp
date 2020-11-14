@@ -1,6 +1,6 @@
 <h1>Goals</h1>
 <% if current_user.created_goals.length > 0 %>
-  <p><small>Filter: <%= link_to "My Created Goals", goal_index_mine_path(current_user) %></small></p>
+  <p><small>Filter: <%= link_to "My Goals", user_goals_path(current_user) %></small></p>
 <% end %>
 
 <%= render partial: "shared/index_list", locals: { objects: @goals } %>

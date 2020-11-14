@@ -1,10 +1,44 @@
 <%= form_for prompt do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 
-  <%= collection_select(:prompt, :character_id, @characters, :id, :name) %>
-  <%= collection_select(:prompt, :goal_id, @goals, :id, :description) %>
-  <%= collection_select(:prompt, :motivation_id, @motivations, :id, :description) %>
+  <%= f.label :character_id, "Character" %><br>
+  <%= collection_select(:prompt, :character_id, @characters, :id, :name) %><br>
+  <a data-toggle="collapse" href="#collapseNewCharacter" role="button" aria-expanded="false" aria-controls="collapseNewCharacter">
+    <small>(Create New)</small>
+  </a><br>
+
+  <div class="collapse" id="collapseNewCharacter">
+      <h5>Create a new character for this prompt:</h5>
+        <%= f.fields_for :character, Character.new do |character_attr|%>
+          <%= character_attr.hidden_field :user_id, value: current_user.id %>
+          <%= character_attr.label :name, "Name:" %><br>
+          <%= character_attr.text_field :name %><br>
+          <%= character_attr.label :species, "Species" %><br>
+          <%= character_attr.text_field :species %><br>
+          <%= character_attr.label :race, "Race" %><br>
+          <%= character_attr.text_field :race %><br>
+          <%= character_attr.label :age, "Age" %><br>
+          <%= character_attr.number_field :age %><br>
+          <%= character_attr.label :average_lifespan, "Average Lifespan" %><br>
+          <%= character_attr.number_field :average_lifespan %><br>
+          <%= character_attr.label :physical_description, "Physical Description" %><br>
+          <%= character_attr.text_area :physical_description %><br>
+          <%= character_attr.label :notes, "Notes" %><br>
+          <%= character_attr.text_area :notes %><br>
+          <%= character_attr.label :shared, "Share?" %>
+          <%= character_attr.check_box :shared, {}, "true", "false" %>
+      <% end %>
+  </div>
+
+  <%= f.label :goal_id, "Goal" %><br>
+  <%= collection_select(:prompt, :goal_id, @goals, :id, :description) %><br>
+
+  <%= f.label :motivation_id, "Motivation" %><br>
+  <%= collection_select(:prompt, :motivation_id, @motivations, :id, :description) %><br>
+
+  <%= f.label :tactic_id, "Tactic" %><br>
   <%= collection_select(:prompt, :tactic_id, @tactics, :id, :description) %><br>
+
   <br>
   <%= f.label :notes, "Notes" %><br>
   <%= f.text_area :notes %><br>
@@ -14,3 +48,7 @@
   <%= f.check_box :shared, {}, "true", "false" %><br>
   <%= f.submit %>
 <% end %>
+
+
+
+
