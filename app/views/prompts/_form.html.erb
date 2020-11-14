@@ -6,10 +6,10 @@
   <%= collection_select(:prompt, :motivation_id, @motivations, :id, :description) %>
   <%= collection_select(:prompt, :tactic_id, @tactics, :id, :description) %><br>
   <br>
-  <%= f.label :url, "URL" %><br>
-  <%= f.text_field :url %><br>
   <%= f.label :notes, "Notes" %><br>
   <%= f.text_area :notes %><br>
+  <%= f.label :url, "URL" %><br>
+  <%= f.text_field :url %><br>
   <%= f.label :shared, "Share?" %>
   <%= f.check_box :shared, {}, "true", "false" %><br>
   <%= f.submit %>
