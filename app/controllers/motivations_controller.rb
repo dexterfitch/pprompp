@@ -3,7 +3,7 @@ class MotivationsController < ApplicationController
   before_action :set_motivation_variable, only: [:edit, :update, :destroy]
 
   def index
-    @motivations = Motivation.all
+    @motivations = (Motivation.shared.all + current_user.created_motivations.all).uniq
   end
 
   def index_mine
@@ -28,6 +28,11 @@ class MotivationsController < ApplicationController
 
   def show
     @motivation = Motivation.find(params[:id])
+    if @motivation.shared == false && @motivation.user_id != current_user.id
+      redirect_to motivations_path
+    else
+      render :show
+    end
   end
 
   def update

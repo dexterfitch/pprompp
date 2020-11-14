@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   before_action :set_goal_variable, only: [:edit, :update, :destroy]
 
   def index
-    @goals = Goal.all
+    @goals = (Goal.shared.all + current_user.created_goals.all).uniq
   end
 
   def index_mine
@@ -28,6 +28,11 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
+    if @goal.shared == false && @goal.user_id != current_user.id
+      redirect_to goals_path
+    else
+      render :show
+    end
   end
 
   def update

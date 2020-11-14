@@ -3,7 +3,7 @@ class TacticsController < ApplicationController
   before_action :set_tactic_variable, only: [:edit, :update, :destroy]
 
   def index
-    @tactics = Tactic.all
+    @tactics = (Tactic.shared.all + current_user.created_tactics.all).uniq
   end
 
   def index_mine
@@ -28,6 +28,11 @@ class TacticsController < ApplicationController
 
   def show
     @tactic = Tactic.find(params[:id])
+    if @tactic.shared == false && @tactic.user_id != current_user.id
+      redirect_to tactics_path
+    else
+      render :show
+    end
   end
 
   def update

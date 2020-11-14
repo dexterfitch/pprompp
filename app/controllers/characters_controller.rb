@@ -3,7 +3,7 @@ class CharactersController < ApplicationController
   before_action :set_character_variable, only: [:edit, :update, :destroy]
 
   def index
-    @characters = Character.all
+    @characters = (Character.shared.all + current_user.created_characters.all).uniq
   end
 
   def index_mine
@@ -28,6 +28,11 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    if @character.shared == false && @character.user_id != current_user.id
+      redirect_to characters_path
+    else
+      render :show
+    end
   end
 
   def update
