@@ -1,9 +1,10 @@
+<%= render partial: "shared/errors", locals: { object: character } %>
 <%= form_for character do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.label :name, "Name" %><br>
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name, required: true %><br>
   <%= f.label :species, "Species" %><br>
-  <%= f.text_field :species %><br>
+  <%= f.text_field :species, required: true %><br>
   <%= f.label :race, "Race" %><br>
   <%= f.text_field :race %><br>
   <%= f.label :age, "Age" %><br>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'static#homepage'
-  get '/privacy', to: 'static#privacy'
+  get '/privacy', as: 'privacy', to: 'static#privacy'
   resources :characters, :goals, :motivations, :tactics, :prompts
   resources :users do
     resources :prompts, only: [:index], to: 'prompts#index_mine'

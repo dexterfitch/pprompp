@@ -30,9 +30,9 @@
         <%= f.fields_for :character, Character.new do |character_attr|%>
           <%= character_attr.hidden_field :user_id, value: current_user.id %>
           <%= character_attr.label :name, "Name:" %><br>
-          <%= character_attr.text_field :name %><br>
+          <%= character_attr.text_field :name, required: true %><br>
           <%= character_attr.label :species, "Species" %><br>
-          <%= character_attr.text_field :species %><br>
+          <%= character_attr.text_field :species, required: true %><br>
           <%= character_attr.label :race, "Race" %><br>
           <%= character_attr.text_field :race %><br>
           <%= character_attr.label :age, "Age" %><br>

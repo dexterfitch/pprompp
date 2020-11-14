@@ -1,7 +1,8 @@
+<%= render partial: "shared/errors", locals: { object: object } %>
 <%= form_for object do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.label :description, "Description" %><br>
-  <%= f.text_area :description %><br>
+  <%= f.text_area :description, required: true %><br>
   <%= f.label :notes, "Notes" %><br>
   <%= f.text_area :notes %><br>
   <%= f.label :shared, "Share?" %>
