@@ -3,7 +3,7 @@ class PromptsController < ApplicationController
   before_action :set_prompt_variable, only: [:edit, :update, :destroy]
 
   def index
-    @prompts = (Prompt.shared.all + current_user.created_prompts.all).uniq
+    @prompts = Prompt.all.available(current_user).randomize("Prompt")
   end
 
   def index_mine
@@ -21,6 +21,10 @@ class PromptsController < ApplicationController
 
   def new
     @prompt = Prompt.new
+    @characters = Character.available(current_user).randomize("Character")
+    @goals = Goal.available(current_user).randomize("Goal")
+    @motivations = Motivation.available(current_user).randomize("Motivation")
+    @tactics = Tactic.available(current_user).randomize("Tactic")
   end
 
   def edit

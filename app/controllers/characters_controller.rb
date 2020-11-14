@@ -3,7 +3,7 @@ class CharactersController < ApplicationController
   before_action :set_character_variable, only: [:edit, :update, :destroy]
 
   def index
-    @characters = (Character.shared.all + current_user.created_characters.all).uniq
+    @characters = Character.all.available(current_user).randomize("Character")
   end
 
   def index_mine

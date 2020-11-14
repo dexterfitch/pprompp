@@ -1,0 +1,20 @@
+<h1>Prompt</h1>
+<label>Character</label>
+<p><%= @prompt.character.name %></p>
+<label>Goal</label>
+<p><%= @prompt.goal.description %></p>
+<label>Motivation</label>
+<p><%= @prompt.motivation.description %></p>
+<label>Tactic</label>
+<p><%= @prompt.tactic.description %></p>
+<label>Link to Work</label>
+<p><%= link_to @prompt.url, @prompt.url %></p>
+<label>Notes</label>
+<p><%= @prompt.notes %></p>
+<% if current_user.id == @prompt.user_id %>
+  <label>Shared?</label>
+  <p><%= @prompt.shared ? "Yes" : "No" %></p>
+  <hr>
+  <%= link_to "Edit", edit_prompt_path(@prompt) %>
+  <%= link_to "Delete", prompt_path(@prompt), method: :delete %>
+<% end %>

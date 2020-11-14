@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   before_action :set_goal_variable, only: [:edit, :update, :destroy]
 
   def index
-    @goals = (Goal.shared.all + current_user.created_goals.all).uniq
+    @goals = Goal.all.available(current_user).randomize("Goal")
   end
 
   def index_mine

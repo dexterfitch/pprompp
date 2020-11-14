@@ -3,7 +3,7 @@ class MotivationsController < ApplicationController
   before_action :set_motivation_variable, only: [:edit, :update, :destroy]
 
   def index
-    @motivations = (Motivation.shared.all + current_user.created_motivations.all).uniq
+    @motivations = Motivation.all.available(current_user).randomize("Motivation")
   end
 
   def index_mine

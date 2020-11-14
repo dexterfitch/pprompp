@@ -3,7 +3,7 @@ class TacticsController < ApplicationController
   before_action :set_tactic_variable, only: [:edit, :update, :destroy]
 
   def index
-    @tactics = (Tactic.shared.all + current_user.created_tactics.all).uniq
+    @tactics = Tactic.all.available(current_user).randomize("Tactic")
   end
 
   def index_mine
