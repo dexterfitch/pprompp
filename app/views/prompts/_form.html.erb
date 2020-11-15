@@ -12,7 +12,7 @@
   <%= f.label :goal_id, "Goal" %><br>
   <%= collection_select(:prompt, :goal_id, @goals, :id, :description) %><br>
 
-  <%= f.label :motivation_id, "Motivation" %><br>
+  <%= f.label :motivation_id, "Quest" %><br>
   <%= collection_select(:prompt, :motivation_id, @motivations, :id, :description) %><br>
 
   <%= f.label :tactic_id, "Tactic" %><br>
@@ -30,9 +30,9 @@
         <%= f.fields_for :character, Character.new do |character_attr|%>
           <%= character_attr.hidden_field :user_id, value: current_user.id %>
           <%= character_attr.label :name, "Name:" %><br>
-          <%= character_attr.text_field :name, required: true %><br>
+          <%= character_attr.text_field :name %><br>
           <%= character_attr.label :species, "Species" %><br>
-          <%= character_attr.text_field :species, required: true %><br>
+          <%= character_attr.text_field :species %><br>
           <%= character_attr.label :race, "Race" %><br>
           <%= character_attr.text_field :race %><br>
           <%= character_attr.label :age, "Age" %><br>
