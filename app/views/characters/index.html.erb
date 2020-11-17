@@ -1,6 +1,5 @@
 <h1>Characters</h1>
-<% if current_user.created_characters.length > 0 %>
-  <p><small>Filter: <%= link_to "My Characters", user_characters_path(current_user) %></small></p>
-<% end %>
+
+<%= render partial: "shared/filter_index", locals: { created_objects: 'created_characters', object_name: 'Characters', path_name: 'characters' } %>
 
 <%= render partial: "index_list" %>

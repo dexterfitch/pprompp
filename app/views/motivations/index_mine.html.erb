@@ -1,4 +1,5 @@
 <h1>My Quests</h1>
-<p><small>Filter: <%= link_to "All Quests", motivations_path %></small></p>
+
+<%= render partial: "shared/filter_index_mine", locals: { created_objects: 'created_motivations', object_name: 'Quests', path_name: 'motivations' } %>
 
 <%= render partial: "shared/index_list", locals: { objects: @motivations } %>

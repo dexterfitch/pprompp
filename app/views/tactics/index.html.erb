@@ -1,6 +1,5 @@
 <h1>Tactics</h1>
-<% if current_user.created_tactics.length > 0 %>
-  <p><small>Filter: <%= link_to "My Tactics", user_tactics_path(current_user) %></small></p>
-<% end %>
+
+<%= render partial: "shared/filter_index", locals: { created_objects: 'created_tactics', object_name: 'Tactics', path_name: 'tactics' } %>
 
 <%= render partial: "shared/index_list", locals: { objects: @tactics } %>

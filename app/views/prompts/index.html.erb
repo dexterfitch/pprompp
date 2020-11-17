@@ -1,5 +1,6 @@
 <h1>Prompts</h1>
-<% if current_user.created_prompts.length > 0 %>
+
+<% if current_user.created_prompts.any? %>
   <p><small>Filter: <%= link_to "My Prompts", user_prompts_path(current_user) %></small></p>
 <% end %>
 

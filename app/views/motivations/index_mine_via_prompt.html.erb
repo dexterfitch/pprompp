@@ -1,0 +1,5 @@
+<h1>My Prompt Quests</h1>
+
+<%= render partial: "shared/filter_index_mine_via_prompt", locals: { created_objects: 'created_motivations', object_name: 'Quests', path_name: 'motivations' } %>
+
+<%= render partial: "shared/index_list", locals: { objects: @motivations }  %>

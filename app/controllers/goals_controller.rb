@@ -10,6 +10,10 @@ class GoalsController < ApplicationController
     @goals = current_user.created_goals.all
   end
 
+  def index_mine_via_prompt
+    @goals = Goal.my_prompt_objects(current_user, "Goal")
+  end
+
   def create
     @goal = Goal.new(goal_params)
     if @goal.save

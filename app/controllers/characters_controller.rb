@@ -10,6 +10,10 @@ class CharactersController < ApplicationController
     @characters = current_user.created_characters.all
   end
 
+  def index_mine_via_prompt
+    @characters = Character.my_prompt_objects(current_user, "Character")
+  end
+
   def create
     @character = Character.new(character_params)
     if @character.save

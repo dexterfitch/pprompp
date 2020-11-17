@@ -10,6 +10,10 @@ class MotivationsController < ApplicationController
     @motivations = current_user.created_motivations.all
   end
 
+  def index_mine_via_prompt
+    @motivations = Motivation.my_prompt_objects(current_user, "Motivation")
+  end
+
   def create
     @motivation = Motivation.new(motivation_params)
     if @motivation.save

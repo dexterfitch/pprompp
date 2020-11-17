@@ -10,6 +10,10 @@ class TacticsController < ApplicationController
     @tactics = current_user.created_tactics.all
   end
 
+  def index_mine_via_prompt
+    @tactics = Tactic.my_prompt_objects(current_user, "Tactic")
+  end
+
   def create
     @tactic = Tactic.new(tactic_params)
     if @tactic.save
