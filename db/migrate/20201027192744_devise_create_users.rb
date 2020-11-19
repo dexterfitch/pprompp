@@ -17,7 +17,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## OAuth Columns
       t.string :full_name
       t.string :uid
-      # BLOG
       t.string :avatar_url
 
       ## Trackable
