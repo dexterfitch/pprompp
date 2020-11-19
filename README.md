@@ -8,7 +8,7 @@
 
 ## Getting Started
 
-To use the app locally with native user creation, use git to clone to your device. Open a terminal window, and navigate to the cloned pprompp project folder. Run `bundle`, `rake db:migrate`, `rake db:seed`, and then `rails s` to load the site at `localhost:3030`, which you can copy and paste into your browser's address bar.
+To use the app locally with native user creation, use git to clone to your device. Open a terminal window, and navigate to the cloned pprompp project folder. Run `bundle`, `rake db:migrate`, `rake db:seed`, and then `rails s` to load the site at `localhost:3000`, which you can copy and paste into your browser's address bar.
 
 ------
 
