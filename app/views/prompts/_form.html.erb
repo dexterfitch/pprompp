@@ -8,7 +8,6 @@
     <small>(Create New)</small>
   </a><br>
 
-
   <%= f.label :goal_id, "Goal" %><br>
   <%= collection_select(:prompt, :goal_id, @goals, :id, :description) %><br>
 

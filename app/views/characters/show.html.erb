@@ -15,6 +15,10 @@
   <label>Shared?</label>
   <p><%= @character.shared ? "Yes" : "No" %></p>
   <hr>
-  <%= link_to "Edit", edit_character_path(@character) %>
+  <% if @used %>
+    <%= link_to "See Prompts Featuring #{@character.name}", character_prompts_path(@character.id) %> | 
+  <% end %>
+  <%= link_to "Add to New Prompt", new_character_prompt_path(@character) %> | 
+  <%= link_to "Edit", edit_character_path(@character) %> | 
   <%= link_to "Delete", character_path(@character), method: :delete %>
 <% end %>

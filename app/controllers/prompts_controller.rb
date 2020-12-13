@@ -3,7 +3,7 @@ class PromptsController < ApplicationController
   before_action :set_prompt_variable, only: [:edit, :update, :destroy]
 
   def index
-    @prompts = Prompt.all.available(current_user).randomize("Prompt")
+    nested_index?
   end
 
   def index_mine
@@ -22,7 +22,7 @@ class PromptsController < ApplicationController
   def new
     @prompt = Prompt.new
     @prompt.build_character
-    @characters = Character.available(current_user).randomize("Character")
+    nested_new?
     @goals = Goal.available(current_user).randomize("Goal")
     @motivations = Motivation.available(current_user).randomize("Motivation")
     @tactics = Tactic.available(current_user).randomize("Tactic")
@@ -61,6 +61,24 @@ class PromptsController < ApplicationController
 
   def set_prompt_variable
     @prompt = current_user.created_prompts.find(params[:id])
+  end
+
+  def nested_index?
+    if params[:character_id]
+      @character = current_user.created_characters.find(params[:character_id])
+      @prompts = Prompt.all.available(current_user).where(character_id: @character.id)
+    else
+      @prompts = Prompt.all.available(current_user).randomize("Prompt")
+    end
+  end
+
+  def nested_new?
+    @characters = []
+    if params[:character_id]
+      @characters << current_user.created_characters.find(params[:character_id])
+    else
+      @characters = Character.available(current_user).randomize("Character")
+    end
   end
 
 end

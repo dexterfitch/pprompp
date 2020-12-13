@@ -32,6 +32,7 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    has_been_in_prompts?
     if @character.shared == false && @character.user_id != current_user.id
       redirect_to characters_path
     else
@@ -60,6 +61,14 @@ class CharactersController < ApplicationController
 
   def set_character_variable
     @character = current_user.created_characters.find(params[:id])
+  end
+
+  def has_been_in_prompts?
+    if Prompt.find_by(character_id: @character.id) == nil
+      @used = false
+    else
+      @used = true
+    end
   end
 
 end
