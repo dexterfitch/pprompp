@@ -1,4 +1,6 @@
-<p><small>Filter: <%= link_to "All #{object_name}", public_send("#{path_name.downcase}_path") %>
+<p><small>
+  <%= link_to "Create new #{object_name.delete_suffix('s')}", public_send("new_#{path_name.delete_suffix('s')}_path") %> | 
+  <%= link_to "All #{object_name}", public_send("#{path_name.downcase}_path") %>
   <% if current_user.created_prompts.any? %>
    |  <%= link_to "My Prompt #{object_name}", public_send("my_prompt_#{path_name.downcase}_path") %>
   <% end %>
