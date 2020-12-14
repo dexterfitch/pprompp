@@ -1,6 +1,24 @@
 .menu_icon {
-    max-height: 50px;
+  max-height: 50px;
 }
-label {
+label,.lead b {
   font-weight: bold;
+}
+
+.homepage-recipe {
+  background-color: $dark-pink;
+  padding: 1.5em 2em 2em;
+  border-radius: 10px;
+  margin-top: 2em;
+  border: 5px solid $brown;
+}
+.homepage-recipe h3 {
+  margin-bottom: 22px;
+}
+.homepage-recipe .card {
+  border: none;
+}
+.homepage-recipe .card-header {
+  background-color: $peach;
+  font-size: 24px;
 }
