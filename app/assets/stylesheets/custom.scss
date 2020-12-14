@@ -5,6 +5,11 @@ label,.lead b {
   font-weight: bold;
 }
 
+.disabled {
+  opacity: .5;
+  pointer-events: none;
+}
+
 .homepage-recipe {
   background-color: $dark-pink;
   padding: 1.5em 2em 2em;
