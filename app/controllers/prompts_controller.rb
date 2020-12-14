@@ -28,9 +28,6 @@ class PromptsController < ApplicationController
     @tactics = Tactic.available(current_user).randomize("Tactic")
   end
 
-  def edit
-  end
-
   def show
     @prompt = Prompt.find(params[:id])
     if @prompt.shared == false && @prompt.user_id != current_user.id

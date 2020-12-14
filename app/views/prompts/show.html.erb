@@ -15,6 +15,5 @@
   <label>Shared?</label>
   <p><%= @prompt.shared ? "Yes" : "No" %></p>
   <hr>
-  <%= link_to "Edit", edit_prompt_path(@prompt) %>
   <%= link_to "Delete", prompt_path(@prompt), method: :delete %>
 <% end %>
