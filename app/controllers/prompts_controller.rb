@@ -11,6 +11,7 @@ class PromptsController < ApplicationController
   end
 
   def create
+    # CHECK current_user.prompts.build(prompt_params) -- look at form
     @prompt = Prompt.new(prompt_params)
     if @prompt.save
       redirect_to prompt_path(@prompt)

@@ -3,9 +3,8 @@ class ApplicationRecord < ActiveRecord::Base
 
   scope :shared, -> { where(shared: true) }
 
-  def self.randomize(class_name)
-    class_name = Object.const_get class_name
-    class_name.order("RANDOM()")
+  def self.randomize
+    order("RANDOM()")
   end
 
   def self.available(current_user)
@@ -20,4 +19,5 @@ class ApplicationRecord < ActiveRecord::Base
     end
     my_prompt_objects.uniq
   end
+  # CHECK
 end

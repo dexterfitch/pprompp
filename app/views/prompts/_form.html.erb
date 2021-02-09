@@ -1,7 +1,8 @@
 <%= render partial: "shared/errors", locals: { object: prompt } %>
 <%= form_for prompt do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-<div class="row">
+  <!-- CHECK -- look at prompt create route-->
+  <div class="row">
     <div class="col-6">  
       <%= f.label :character_id, "Character" %><br>
       <%= collection_select(:prompt, :character_id, @characters, :id, :name) %><br>
@@ -32,6 +33,7 @@
         <h5>Create a new character for this prompt:</h5>
         <%= f.fields_for :character, Character.new do |character_attr|%>
           <%= character_attr.hidden_field :user_id, value: current_user.id %>
+          <!-- CHECK - Same as above -->
           <%= character_attr.label :name, "Name:" %><br>
           <%= character_attr.text_field :name %><br>
           <%= character_attr.label :species, "Species" %><br>
